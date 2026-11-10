@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猩之卡比 | 首頁 - 多媒體動畫系 Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Zen Maru Gothic & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dozo-bg': '#f9f6ef',
+                        'dozo-mint': '#7bdcb5',
+                        'dozo-yellow': '#ffd166',
+                        'dozo-pink': '#ff99c8',
+                        'dozo-blue': '#64dfdf',
+                        'dozo-orange': '#ff70a6',
+                        'dozo-dark': '#1e1e24',
+                    },
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'pop': '4px 4px 0px #1e1e24',
+                        'pop-lg': '7px 7px 0px #1e1e24',
+                        'pop-xl': '10px 10px 0px #1e1e24',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f9f6ef;
+            color: #1e1e24;
+            font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .pop-border {
+            border: 3px solid #1e1e24;
+        }
+
+        .pop-border-thick {
+            border: 4px solid #1e1e24;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(2deg);
+            }
+        }
+
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: floatSlow 5s ease-in-out infinite reverse;
+        }
+
+        .pop-button {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pop-button:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0px #1e1e24;
+        }
+
+        .pop-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #1e1e24;
+        }
+
+        .sticker-bounce {
+            transition: transform 0.2s ease;
+        }
+
+        .sticker-bounce:hover {
+            transform: scale(1.1) rotate(-4deg);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 18s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-dozo-pink selection:text-dozo-dark flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-dozo-yellow border-b-4 border-dozo-dark font-bold text-sm md:text-base py-2 overflow-hidden whitespace-nowrap">
+        <div class="animate-marquee flex items-center gap-8">
+            <span>WELCOME TO KIRBY'S ANIMATION WORLD </span>
+            <span>忍一時越想越氣，退一步直接斷氣！</span>
+            <span>2D/3D ANIMATION & MOTION GRAPHICS</span>
+            <span>肝帝模式全天候開啟中</span>
+            <span>WELCOME TO KIRBY'S ANIMATION WORLD </span>
+            <span>忍一時越想越氣，退一步直接斷氣！</span>
+            <span>2D/3D ANIMATION & MOTION GRAPHICS</span>
+            <span>肝帝模式全天候開啟中</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-50 bg-dozo-bg border-b-4 border-dozo-dark px-4 md:px-8 py-3.5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="bg-dozo-pink pop-border px-3 py-1 rounded-full font-black text-xl md:text-2xl shadow-pop group-hover:rotate-3 transition-transform">
+                    KIRBY<span class="text-white">.ANIM</span>
+                </div>
+                <span class="hidden sm:inline-block bg-dozo-mint text-xs font-bold px-2 py-1 rounded-md pop-border">多媒體動畫系</span>
+            </a>
+
+            <!-- Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-2 lg:gap-3 font-bold text-base">
+                <a href="index.html" class="bg-dozo-pink text-white pop-border px-3.5 py-1.5 rounded-xl shadow-pop">首頁</a>
+                <a href="about.html" class="px-3 py-1.5 hover:text-dozo-orange transition-colors">自我介紹</a>
+                <a href="works.html" class="px-3 py-1.5 hover:text-dozo-orange transition-colors">展覽作品</a>
+                <a href="favorites.html" class="px-3 py-1.5 hover:text-dozo-orange transition-colors">動畫漫畫</a>
+                <a href="playlist.html" class="px-3 py-1.5 hover:text-dozo-orange transition-colors">音樂清單</a>
+                <a href="contact.html" class="px-3 py-1.5 hover:text-dozo-orange transition-colors">聯絡我</a>
+            </nav>
+
+            <!-- Buttons & Mobile Menu Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="playPopSound()"
+                    class="bg-dozo-mint pop-border px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl font-black text-xs sm:text-sm shadow-pop pop-button flex items-center gap-1.5">
+                    <span>SAY HELLO!</span>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden bg-white pop-border p-2 rounded-xl shadow-pop pop-button" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-t-2 border-dozo-dark mt-3">
+            <nav class="flex flex-col gap-2 font-bold text-base">
+                <a href="index.html" class="bg-dozo-pink text-white pop-border px-4 py-2 rounded-xl shadow-pop">首頁</a>
+                <a href="about.html" class="bg-white pop-border px-4 py-2 rounded-xl shadow-pop hover:bg-dozo-yellow">自我介紹</a>
+                <a href="works.html" class="bg-white pop-border px-4 py-2 rounded-xl shadow-pop hover:bg-dozo-yellow">展覽作品</a>
+                <a href="favorites.html" class="bg-white pop-border px-4 py-2 rounded-xl shadow-pop hover:bg-dozo-yellow">動畫漫畫</a>
+                <a href="playlist.html" class="bg-white pop-border px-4 py-2 rounded-xl shadow-pop hover:bg-dozo-yellow">音樂清單</a>
+                <a href="contact.html" class="bg-white pop-border px-4 py-2 rounded-xl shadow-pop hover:bg-dozo-yellow">聯絡我</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main class="flex-grow">
+        <section class="max-w-6xl mx-auto px-4 md:px-8 py-10 md:py-16 relative">
+            <!-- Floating Pop Background Decor -->
+            <div class="absolute top-6 left-4 bg-dozo-pink text-xs font-black px-3 py-1 rounded-full pop-border shadow-pop animate-float hidden lg:block">
+                ★ HOT CREATOR ★
+            </div>
+            <div class="absolute bottom-6 right-8 bg-dozo-yellow text-xs font-black px-4 py-1.5 rounded-full pop-border shadow-pop animate-float-reverse hidden lg:block">
+                DEADLINE STRIKER
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+
+                <!-- Left Info Block -->
+                <div class="lg:col-span-7 flex flex-col items-start gap-5">
+                    <!-- Tag Pill -->
+                    <div class="inline-flex items-center gap-2 bg-dozo-yellow pop-border px-4 py-1.5 rounded-full font-black text-sm shadow-pop">
+                        <span class="w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
+                        <span>多媒體動畫系 4.0 爆肝大學生／創作者</span>
+                    </div>
+
+                    <!-- Main Name Header -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+                        Hi! 我是 <br />
+                        <span class="inline-block bg-dozo-pink pop-border px-4 py-1 mt-2 rounded-3xl shadow-pop text-white transform -rotate-1">
+                            猩之卡比
+                        </span>
+                    </h1>
+
+                    <!-- Motto Speech Bubble -->
+                    <div class="relative bg-white pop-border-thick p-5 sm:p-6 rounded-3xl shadow-pop-lg max-w-xl w-full">
+                        <div class="absolute -top-4 left-6 bg-dozo-mint font-black text-xs px-3 py-1 rounded-full pop-border">
+                            MY MOTTO / 座右銘
+                        </div>
+                        <p class="text-xl sm:text-2xl font-black text-dozo-dark leading-relaxed pt-2">
+                            「忍一時越想越氣，<br class="sm:hidden" />退一步直接斷氣？」
+                        </p>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 font-bold">
+                            —— 秉持著「能用動畫解決的事，絕不用嘴巴講」的原則在繪圖板前奮戰。
+                        </p>
+                    </div>
+
+                    <!-- Skill Badges Bar -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="bg-white pop-border px-3 py-1.5 rounded-xl text-sm font-bold shadow-pop sticker-bounce">
+                            2D 動畫繪製
+                        </span>
+                        <span class="bg-dozo-mint pop-border px-3 py-1.5 rounded-xl text-sm font-bold shadow-pop sticker-bounce">
+                            Stop motion 逐格動畫
+                        </span>
+                        <span class="bg-dozo-yellow pop-border px-3 py-1.5 rounded-xl text-sm font-bold shadow-pop sticker-bounce">
+                            Motion Graphics
+                        </span>
+                        <span class="bg-dozo-pink pop-border px-3 py-1.5 rounded-xl text-sm font-bold shadow-pop sticker-bounce text-white">
+                            珍奶驅動 engine
+                        </span>
+                    </div>
+
+                    <!-- Action CTA -->
+                    <div class="flex flex-wrap gap-4 pt-3">
+                        <a href="works.html"
+                            class="bg-dozo-dark text-white font-black px-7 py-3.5 rounded-2xl text-base sm:text-lg shadow-pop-lg pop-button flex items-center justify-center">
+                            <span>瀏覽作品集 (9件作品) →</span>
+                        </a>
+                        <a href="about.html"
+                            class="bg-white pop-border font-black px-6 py-3.5 rounded-2xl text-base sm:text-lg shadow-pop-lg pop-button hover:bg-dozo-yellow">
+                            認識卡比
+                        </a>
+                        <a href="contact.html"
+                            class="bg-dozo-mint pop-border font-black px-6 py-3.5 rounded-2xl text-base sm:text-lg shadow-pop-lg pop-button">
+                            合作諮詢
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Avatar Showcase Block -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-full max-w-sm">
+
+                        <!-- Sticker Decor -->
+                        <div class="absolute -top-6 -left-6 bg-dozo-pink text-white pop-border px-4 py-2 rounded-2xl font-black text-sm shadow-pop z-20 rotate-[-10deg] sticker-bounce">
+                            WOAH!
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-dozo-yellow pop-border px-4 py-2 rounded-2xl font-black text-xs shadow-pop z-20 rotate-[8deg] sticker-bounce">
+                            ANIMATOR ON WORK
+                        </div>
+                        <div class="absolute top-1/2 -right-8 bg-dozo-blue pop-border px-3 py-1.5 rounded-2xl font-black text-xs shadow-pop z-20 animate-bounce hidden sm:block">
+                            ARTIST
+                        </div>
+
+                        <!-- Main Image Frame with Pop Shadow -->
+                        <div class="bg-white pop-border-thick p-4 rounded-3xl shadow-pop-xl relative z-10 overflow-hidden group">
+                            <div class="relative overflow-hidden rounded-2xl border-2 border-dozo-dark bg-sky-200">
+                                <img src="123.png"
+                                    onerror="this.src='https://placehold.co/600x600/1e1e24/ffffff?text=Kirby+Animator+Cat';"
+                                    alt="猩之卡比 大頭貼"
+                                    class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-3 left-3 bg-dozo-dark/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm border border-white">
+                                    Mode: 沉浸渲染中...
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between px-1">
+                                <div>
+                                    <h3 class="font-black text-lg">猩之卡比 Kirby</h3>
+                                    <p class="text-xs font-bold text-gray-500">Dept. of Multimedia & Animation</p>
+                                </div>
+                                <span class="bg-dozo-yellow pop-border px-2 py-0.5 rounded-md text-xs font-black">NEW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TICKER DIVIDER -->
+        <div class="bg-dozo-mint border-y-4 border-dozo-dark py-3 my-6 font-black text-lg overflow-hidden whitespace-nowrap">
+            <div class="animate-marquee flex items-center gap-12">
+                <span>2D/3D ANIMATION</span>
+                <span>MOTION DESIGN</span>
+                <span>CHARACTER ILLUSTRATION</span>
+                <span>CONCEPT ART & STORYBOARD</span>
+                <span>2D/3D ANIMATION</span>
+                <span>MOTION DESIGN</span>
+                <span>CHARACTER ILLUSTRATION</span>
+                <span>CONCEPT ART & STORYBOARD</span>
+            </div>
+        </div>
+
+        <!-- MULTI-PAGE PORTAL DIRECTORY / HIGHLIGHTS -->
+        <section class="max-w-6xl mx-auto px-4 md:px-8 py-12">
+            <div class="text-center mb-10">
+                <div class="inline-block bg-dozo-pink text-white pop-border px-5 py-1.5 rounded-full font-black text-sm shadow-pop mb-2">
+                    EXPLORE THE UNIVERSE
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black">探索多頁式內容</h2>
+                <p class="text-gray-600 font-bold mt-2 text-sm">點擊各分頁卡片，查看完整的創作與收藏！</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Portal Card 1: About Me -->
+                <div class="bg-white pop-border-thick rounded-3xl p-6 shadow-pop-lg flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 bg-dozo-yellow pop-border rounded-2xl flex items-center justify-center font-black text-base shadow-pop">
+                                01
+                            </span>
+                            <span class="bg-dozo-mint pop-border text-xs font-black px-2.5 py-1 rounded-lg">ABOUT</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 group-hover:text-dozo-orange transition-colors">自我介紹 & 技能</h3>
+                        <p class="text-gray-600 font-bold text-sm leading-relaxed mb-4">
+                            深入了解卡比的三大創作性格：視覺動態狂熱、珍奶能量驅動與壓線急診創作者，以及 AE、PR、Blender 等全套技能裝備。
+                        </p>
+                    </div>
+                    <a href="about.html"
+                        class="bg-dozo-dark text-white font-black px-4 py-2.5 rounded-xl text-center shadow-pop pop-button block">
+                        進入自我介紹頁 →
+                    </a>
+                </div>
+
+                <!-- Portal Card 2: Featured Works -->
+                <div class="bg-dozo-yellow pop-border-thick rounded-3xl p-6 shadow-pop-lg flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 bg-white pop-border rounded-2xl flex items-center justify-center font-black text-base shadow-pop">
+                                02
+                            </span>
+                            <span class="bg-dozo-pink text-white pop-border text-xs font-black px-2.5 py-1 rounded-lg">GALLERY</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 group-hover:text-white transition-colors">展覽作品展廳</h3>
+                        <p class="text-dozo-dark font-bold text-sm leading-relaxed mb-4">
+                            收錄 3 幅數位精緻平面插畫與 6 部逐格/2D 動畫影片（包含手偶、摘蘋果、MEOW、GROWTH RINGS 等），支援懸停動態播放與大圖欣賞。
+                        </p>
+                    </div>
+                    <a href="works.html"
+                        class="bg-white text-dozo-dark pop-border font-black px-4 py-2.5 rounded-xl text-center shadow-pop pop-button block hover:bg-dozo-mint">
+                        瀏覽完整作品集 (9件) →
+                    </a>
+                </div>
+
+                <!-- Portal Card 3: Favorites -->
+                <div class="bg-white pop-border-thick rounded-3xl p-6 shadow-pop-lg flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 bg-dozo-blue pop-border rounded-2xl flex items-center justify-center font-black text-base shadow-pop">
+                                03
+                            </span>
+                            <span class="bg-dozo-yellow pop-border text-xs font-black px-2.5 py-1 rounded-lg">FAVES</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 group-hover:text-dozo-orange transition-colors">最愛動畫漫畫</h3>
+                        <p class="text-gray-600 font-bold text-sm leading-relaxed mb-4">
+                            航海王、魔法帽的工作室、寶石之國、章魚嗶的原罪等 12 部啟發卡比創作靈感的精神糧食清單！
+                        </p>
+                    </div>
+                    <a href="favorites.html"
+                        class="bg-dozo-dark text-white font-black px-4 py-2.5 rounded-xl text-center shadow-pop pop-button block">
+                        查看靈感動漫清單 →
+                    </a>
+                </div>
+
+                <!-- Portal Card 4: Playlist -->
+                <div class="bg-dozo-mint pop-border-thick rounded-3xl p-6 shadow-pop-lg flex flex-col justify-between group hover:-translate-y-1 transition-transform">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 bg-white pop-border rounded-2xl flex items-center justify-center font-black text-base shadow-pop">
+                                04
+                            </span>
+                            <span class="bg-dozo-dark text-white pop-border text-xs font-black px-2.5 py-1 rounded-lg">JUKEBOX</span>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 group-hover:text-dozo-pink transition-colors">黑膠唱片機 & Spotify
+                        </h3>
+                        <p class="text-dozo-dark font-bold text-sm leading-relaxed mb-4">
+                            精選 6 首作業用神曲（黃大謙、JENNIE、NMIXX、7co、盧廣仲），支援黑膠唱片旋轉連動與 Spotify 播放！
+                        </p>
+                    </div>
+                    <a href="playlist.html"
+                        class="bg-dozo-dark text-white font-black px-4 py-2.5 rounded-xl text-center shadow-pop pop-button block">
+                        開啟黑膠唱片機 ♫ →
+                    </a>
+                </div>
+
+                <!-- Portal Card 5: Contact -->
+                <div class="bg-white pop-border-thick rounded-3xl p-6 shadow-pop-lg flex flex-col justify-between group hover:-translate-y-1 transition-transform md:col-span-2 lg:col-span-2">
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-dozo-pink text-white pop-border text-xs font-black px-3 py-1 rounded-lg">COMMISSION OPEN</span>
+                                <span class="text-xs font-bold text-gray-500">接案中 · 歡迎委託</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-black mb-2">準備好一起創造爆款動畫了嗎？</h3>
+                            <p class="text-gray-600 font-bold text-sm leading-relaxed max-w-xl">
+                                歡迎展覽合作、動畫專案委託、分鏡製作、Motion Graphics 或只是來聊聊珍奶微糖微冰最讚！透過專屬聯絡頁面或 Email 快速聯繫。
+                            </p>
+                        </div>
+                        <a href="contact.html"
+                            class="bg-dozo-yellow text-dozo-dark pop-border font-black px-6 py-4 rounded-2xl text-center shadow-pop pop-button shrink-0 text-base">
+                            前往聯絡頁面 ✉
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dozo-dark text-white border-t-4 border-dozo-dark pt-12 pb-8 px-4 md:px-8 mt-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-700">
+                <div class="flex items-center gap-3">
+                    <div class="bg-dozo-pink pop-border px-3 py-1 rounded-full font-black text-xl text-dozo-dark">
+                        KIRBY<span class="text-white">.ANIM</span>
+                    </div>
+                    <span class="text-sm font-bold text-gray-400">猩之卡比 | 多媒體動畫系個人作品網站</span>
+                </div>
+                <div class="flex flex-wrap gap-4 font-bold text-sm">
+                    <a href="index.html" class="text-dozo-yellow hover:underline">首頁</a>
+                    <a href="about.html" class="hover:text-dozo-yellow">自我介紹</a>
+                    <a href="works.html" class="hover:text-dozo-yellow">展覽作品</a>
+                    <a href="favorites.html" class="hover:text-dozo-yellow">動畫漫畫</a>
+                    <a href="playlist.html" class="hover:text-dozo-yellow">音樂清單</a>
+                    <a href="contact.html" class="hover:text-dozo-yellow">聯絡我</a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-bold text-xs text-gray-400">
+                <div class="flex items-center gap-2">
+                    <span class="bg-dozo-pink text-white px-2 py-0.5 rounded pop-border text-[10px]">猩之卡比</span>
+                    <span>© 2026 Dept. of Multimedia & Animation. All rights reserved.</span>
+                </div>
+                <div class="flex items-center gap-3 font-black text-xs text-white">
+                    <button onclick="copyEmail()" class="hover:text-dozo-yellow transition-colors underline">EMAIL</button>
+                    <span>/</span>
+                    <a href="#" class="hover:text-dozo-yellow transition-colors underline">INSTAGRAM</a>
+                    <span>/</span>
+                    <a href="#" class="hover:text-dozo-yellow transition-colors underline">YOUTUBE</a>
+                    <span>/</span>
+                    <a href="#" class="hover:text-dozo-yellow transition-colors underline">ARTSTATION</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed bottom-6 right-6 bg-dozo-yellow text-dozo-dark font-black pop-border px-5 py-3 rounded-2xl shadow-pop opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+        訊息：成功複製 Email 地址！
+    </div>
+
+    <!-- Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function playPopSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(450, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.12);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        function copyEmail() {
+            const email = 'kirby.anim@example.com';
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast('已複製 Email: ' + email);
+                }).catch(() => {
+                    showToast('Email: ' + email);
+                });
+            } else {
+                showToast('Email: ' + email);
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
